@@ -82,7 +82,8 @@ public class MainActivity extends AppCompatActivity {
                 String city = jsonObject.getString("name");
                 String temp = jsonObject.getJSONObject("main").getString("temp");
                 String description = jsonObject.getJSONArray("weather").getJSONObject(0).getString("description");
-                String weather = String.format("%s\nTemperature: %s\nWeather: %s",city,temp,description);
+                String windSpeed = jsonObject.getJSONObject("wind").getString("speed");
+                String weather = String.format("%s\nTemperature: %s\nWeather: %s\nWind speed: %s",city,temp,description,windSpeed);
                 textViewWeather.setText(weather);
             } catch (JSONException e) {
                 e.printStackTrace();
